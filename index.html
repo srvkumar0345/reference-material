@@ -43,7 +43,7 @@
     first=document.getElementById("fop").value;
     second=document.getElementById("sop").value;
     ops=document.getElementById("ops").value;
-    url='https://ooc22kchvk.execute-api.ap-south-1.amazonaws.com/calc-function?'+'firstoperand='+first+"&"+'secondoperand='+second+"&"+'operator='+ops;
+    url='api-invoke-url?'+'firstoperand='+first+"&"+'secondoperand='+second+"&"+'operator='+ops;
     console.log(url)
     xhttp.open("GET",url, true);
     xhttp.send();
