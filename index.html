@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+
+<h1> 
+  Simple Calculator using API Gateway
+</h1>
+<br><br>
+
+
+  <label for="firstop">First Operand:    </label>
+  <input type="text" id="fop" name="firstop"><br><br>
+  <label for="secondop">Second Operand:</label>
+  <input type="text" id="sop" name="secondop"><br><br>
+  <label for="ops">Operator:</label>
+  <input type="text" id="ops" name="ops"><br><br>
+  <button type="button" onclick="calculate()">Calculate</button>
+  <br><br>
+  <label for="output">Result:</label>
+  <input type="text" id="result" name="output" disabled><br><br>
+  <label for="opsperf">Operation Performed:</label>
+  <input type="text" id="opperf" name="opsperf" disabled><br><br>
+
+
+  <script>
+    function calculate() {
+    var xhttp = new XMLHttpRequest();
+  
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response=JSON.parse(this.responseText);
+            document.getElementById("result").value =
+            response.Result;
+            document.getElementById("opperf").value =
+            response.OperationPerformed;
+    }
+  }
+    first=document.getElementById("fop").value;
+    second=document.getElementById("sop").value;
+    ops=document.getElementById("ops").value;
+    url='https://ooc22kchvk.execute-api.ap-south-1.amazonaws.com/calc-function?'+'firstoperand='+first+"&"+'secondoperand='+second+"&"+'operator='+ops;
+    console.log(url)
+    xhttp.open("GET",url, true);
+    xhttp.send();
+    }
+
+  </script>
+    
+</body> 
+</html>
