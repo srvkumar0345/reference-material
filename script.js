@@ -17,7 +17,7 @@ function calculate_forex() {
     base=document.getElementById("curr1").value;
     symbols=document.getElementById("curr2").value;
     
-    url='https://29s2zacvy8.execute-api.us-west-2.amazonaws.com/latest?'+'base='+base+"&"+'symbols='+symbols;
+    url='<api-invoke-url>'+'base='+base+"&"+'symbols='+symbols;
     console.log(url)
     xhttp.open("GET",url, true);
     xhttp.send();
