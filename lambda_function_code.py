@@ -19,7 +19,7 @@ def lambda_handler(event, context):
     
     print(source_bucket)
     
-    key = str(urllib.unquote_plus(sns_message['Records'][0]['s3']['object']['key']).decode('utf8')) #Object Key or the object name
+    key = str(sns_message['Records'][0]['s3']['object']['key']) #Object Key or the object name #Object Key or the object name
     
     print(key)
     
